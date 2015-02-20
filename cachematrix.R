@@ -24,7 +24,7 @@ makeCacheMatrix <- function(x = matrix()) {
   set_the_matrix <- function(solve) m <<- solve
   ### returns the stored  Matrix
   get_the_matrix <- function() m
-  ### interfaces used by cache.Solve below to manipulate the Matrix
+  ### interfaces used by cacheSolve below to manipulate the Matrix
   list(set = set, get = get,
        set_the_matrix = set_the_matrix,
        get_the_matrix = get_the_matrix)
@@ -54,9 +54,9 @@ cacheSolve <- function(x=matrix(), ...) {
 
 ### Testing the above
 ### 1. Create a basic matrix
-### 2. Call makeCacheMatrix on this matrix and save in new matrix object
-### 3. Pass this saved matrix to cachesolve - since it's the first
+### 2. Call makeCacheMatrix on this matrix and save to a new matrix
+### 3. Pass this new matrix to cachesolve - since it's the first
 ###    time, the inverse is computed and stored.
-### 4. Pass this saved matrix to cachesolve again - since it's already
+### 4. Pass this new matrix to cachesolve again - since it's already
 ###    cached in step 3, this function simply returns the cache inverse
-###    of the matrix.
+###    of the matrix. And happens very quickly, since no computation take place.
